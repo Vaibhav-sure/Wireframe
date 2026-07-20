@@ -1,0 +1,376 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>VirtualWorks — Website Wireframes</title>
+<style>
+  :root{
+    --ink:#1a1a1a;
+    --muted:#6b6b66;
+    --line:#1a1a1a;
+    --paper:#fdfbf7;
+    --card:#ffffff;
+    --accent:#6c5ce7;   /* purple */
+    --lime:#d4f542;     /* lime */
+    --gray-box:#eceae3;
+    --gray-box-line:#c9c6ba;
+  }
+  *{box-sizing:border-box;}
+  body{
+    margin:0;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
+    background:var(--paper);
+    color:var(--ink);
+    padding:32px 24px 64px;
+  }
+  .top{
+    max-width:1200px;
+    margin:0 auto 32px;
+  }
+  .eyebrow{
+    display:inline-block;
+    background:var(--accent);
+    color:#fff;
+    font-size:12px;
+    font-weight:700;
+    letter-spacing:.06em;
+    text-transform:uppercase;
+    padding:6px 14px;
+    border-radius:6px;
+    margin-bottom:14px;
+  }
+  h1{
+    font-size:38px;
+    line-height:1.05;
+    margin:0 0 10px;
+    font-weight:800;
+    letter-spacing:-0.01em;
+  }
+  .sub{
+    font-size:15px;
+    color:var(--muted);
+    max-width:640px;
+    margin:0 0 18px;
+  }
+  .tag{
+    display:inline-block;
+    background:var(--lime);
+    color:var(--ink);
+    font-size:12px;
+    font-weight:700;
+    text-transform:uppercase;
+    letter-spacing:.04em;
+    padding:5px 12px;
+    border-radius:5px;
+  }
+  .legend{
+    max-width:1200px;
+    margin:0 auto 28px;
+    display:flex;
+    gap:18px;
+    flex-wrap:wrap;
+    font-size:12px;
+    color:var(--muted);
+  }
+  .legend span{
+    display:inline-flex;
+    align-items:center;
+    gap:6px;
+  }
+  .swatch{
+    width:12px;height:12px;border-radius:3px;border:1.5px solid var(--line);
+  }
+  .grid{
+    max-width:1200px;
+    margin:0 auto;
+    display:grid;
+    grid-template-columns:repeat(auto-fit, minmax(260px, 1fr));
+    gap:22px;
+  }
+  .page{
+    background:var(--card);
+    border:2px solid var(--line);
+    border-radius:12px;
+    overflow:hidden;
+    box-shadow:4px 4px 0 rgba(0,0,0,0.08);
+  }
+  .page-label{
+    display:flex;
+    align-items:center;
+    gap:8px;
+    background:var(--accent);
+    color:#fff;
+    font-size:12px;
+    font-weight:700;
+    letter-spacing:.03em;
+    padding:9px 12px;
+  }
+  .page-label .num{
+    background:rgba(255,255,255,.25);
+    padding:1px 7px;
+    border-radius:4px;
+    font-size:11px;
+  }
+  .body{
+    padding:12px;
+    display:flex;
+    flex-direction:column;
+    gap:9px;
+  }
+  .nav{
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    padding-bottom:9px;
+    border-bottom:1.5px solid var(--line);
+  }
+  .logo{
+    width:46px;height:11px;background:var(--gray-box);border:1.5px solid var(--line);border-radius:3px;
+  }
+  .navlinks{display:flex;gap:6px;}
+  .navlinks span{width:22px;height:6px;background:var(--gray-box-line);border-radius:2px;}
+  .cta-pill{
+    font-size:9px;font-weight:700;background:var(--lime);border:1.5px solid var(--line);
+    border-radius:4px;padding:3px 8px;
+  }
+  .line{
+    height:8px;background:var(--gray-box-line);border-radius:3px;
+  }
+  .box{
+    background:var(--gray-box);
+    border:1.5px solid var(--line);
+    border-radius:5px;
+  }
+  .ximg{
+    position:relative;
+    background:var(--gray-box);
+    border:1.5px solid var(--line);
+    border-radius:5px;
+  }
+  .ximg::before,.ximg::after{
+    content:"";position:absolute;inset:0;
+    background:
+      linear-gradient(to bottom right, transparent calc(50% - 1px), var(--line) 50%, transparent calc(50% + 1px)),
+      linear-gradient(to top right, transparent calc(50% - 1px), var(--line) 50%, transparent calc(50% + 1px));
+  }
+  .section-tag{
+    font-size:10px;
+    font-weight:700;
+    text-transform:uppercase;
+    letter-spacing:.04em;
+    color:var(--accent);
+    margin:5px 0 -2px;
+  }
+  .btn{
+    font-size:10px;
+    font-weight:700;
+    text-align:center;
+    border:1.5px solid var(--line);
+    border-radius:5px;
+    padding:7px;
+    background:#fff;
+  }
+  .btn.primary{
+    background:var(--lime);
+  }
+  .row{display:flex;gap:7px;}
+  .row > *{flex:1;}
+  .grid3{display:grid;grid-template-columns:1fr 1fr 1fr;gap:6px;}
+  .grid2{display:grid;grid-template-columns:1fr 1fr;gap:6px;}
+  .note{
+    font-size:10px;
+    color:var(--muted);
+    font-style:italic;
+    padding:6px 8px;
+    background:rgba(108,92,231,0.06);
+    border-left:3px solid var(--accent);
+    border-radius:0 4px 4px 0;
+  }
+  .footer-block{
+    height:24px;
+    background:var(--gray-box);
+    border:1.5px solid var(--line);
+    border-radius:5px;
+  }
+  footer{
+    max-width:1200px;
+    margin:40px auto 0;
+    font-size:12px;
+    color:var(--muted);
+    border-top:1.5px solid var(--gray-box-line);
+    padding-top:16px;
+  }
+</style>
+</head>
+<body>
+
+  <div class="top">
+    <span class="eyebrow">UI / UX Wireframe</span>
+    <h1>VirtualWorks — website structure</h1>
+    <p class="sub">Low-fidelity layout plan for virtualworks.space: four core page types, showing content hierarchy and placement before visual styling. Grey boxes = images, lines = text, purple tags = section labels.</p>
+    <span class="tag">Structure first · design next</span>
+  </div>
+
+  <div class="legend">
+    <span><span class="swatch" style="background:var(--gray-box)"></span> Content block</span>
+    <span><span class="swatch" style="background:#fff;position:relative;overflow:hidden;"></span> Image placeholder (X)</span>
+    <span><span class="swatch" style="background:var(--lime)"></span> Primary action</span>
+    <span><span class="swatch" style="background:#fff;border-color:var(--line)"></span> Secondary action</span>
+    <span>💜 Purple label = section purpose</span>
+  </div>
+
+  <div class="grid">
+
+    <!-- PAGE 1: HOME -->
+    <div class="page">
+      <div class="page-label"><span class="num">01</span> Home page</div>
+      <div class="body">
+        <div class="nav">
+          <div class="logo"></div>
+          <div class="navlinks"><span></span><span></span><span></span></div>
+          <div class="cta-pill">Apply now</div>
+        </div>
+
+        <div class="section-tag">Hero</div>
+        <div class="line" style="width:75%;height:16px;"></div>
+        <div class="line" style="width:92%;"></div>
+        <div class="line" style="width:55%;"></div>
+        <div class="row">
+          <div class="btn primary">Start internship</div>
+          <div class="btn">Student login</div>
+        </div>
+        <div class="ximg" style="height:70px;"></div>
+        <div class="line" style="width:35%;"></div>
+
+        <div class="section-tag">What you get (3 cards)</div>
+        <div class="grid3">
+          <div class="box" style="padding:6px;"><div class="line" style="width:80%;margin-bottom:5px;"></div><div class="line" style="width:60%;"></div></div>
+          <div class="box" style="padding:6px;"><div class="line" style="width:80%;margin-bottom:5px;"></div><div class="line" style="width:60%;"></div></div>
+          <div class="box" style="padding:6px;"><div class="line" style="width:80%;margin-bottom:5px;"></div><div class="line" style="width:60%;"></div></div>
+        </div>
+
+        <div class="section-tag">Domain grid (links out to domain pages)</div>
+        <div class="grid3">
+          <div class="box" style="height:22px;"></div><div class="box" style="height:22px;"></div><div class="box" style="height:22px;"></div>
+          <div class="box" style="height:22px;"></div><div class="box" style="height:22px;"></div><div class="box" style="height:22px;"></div>
+        </div>
+
+        <div class="section-tag">University collaboration CTA</div>
+        <div class="box" style="padding:6px;"><div class="line" style="width:70%;margin-bottom:5px;"></div><div class="btn" style="width:110px;">Partner with us</div></div>
+
+        <div class="note">Priority: build trust fast (enrolled count, MSME badge) before asking for the click.</div>
+        <div class="section-tag">Footer</div>
+        <div class="footer-block"></div>
+      </div>
+    </div>
+
+    <!-- PAGE 2: DOMAIN DETAIL -->
+    <div class="page">
+      <div class="page-label"><span class="num">02</span> Internship domain page</div>
+      <div class="body">
+        <div class="nav">
+          <div class="logo"></div>
+          <div class="navlinks"><span></span><span></span><span></span></div>
+          <div class="cta-pill">Apply now</div>
+        </div>
+
+        <div class="section-tag">Breadcrumb + title</div>
+        <div class="line" style="width:40%;height:7px;"></div>
+        <div class="line" style="width:88%;height:15px;"></div>
+        <div class="line" style="width:95%;"></div>
+        <div class="line" style="width:65%;"></div>
+        <div class="btn primary" style="width:130px;">Apply for this track</div>
+
+        <div class="section-tag">Task-based curriculum</div>
+        <div class="box" style="padding:6px;"><div class="line" style="width:90%;margin-bottom:5px;"></div><div class="line" style="width:70%;"></div></div>
+        <div class="box" style="padding:6px;"><div class="line" style="width:90%;margin-bottom:5px;"></div><div class="line" style="width:70%;"></div></div>
+        <div class="box" style="padding:6px;"><div class="line" style="width:90%;margin-bottom:5px;"></div><div class="line" style="width:70%;"></div></div>
+
+        <div class="section-tag">Outcomes</div>
+        <div class="grid2">
+          <div class="box" style="height:36px;"></div>
+          <div class="box" style="height:36px;"></div>
+        </div>
+
+        <div class="note">Every domain page reuses this template — only headline, tasks, and image swap per domain.</div>
+        <div class="section-tag">Footer</div>
+        <div class="footer-block"></div>
+      </div>
+    </div>
+
+    <!-- PAGE 3: ABOUT -->
+    <div class="page">
+      <div class="page-label"><span class="num">03</span> About / Emogi page</div>
+      <div class="body">
+        <div class="nav">
+          <div class="logo"></div>
+          <div class="navlinks"><span></span><span></span><span></span></div>
+          <div class="cta-pill">Apply now</div>
+        </div>
+
+        <div class="section-tag">Intro</div>
+        <div class="line" style="width:65%;height:15px;"></div>
+        <div class="line" style="width:95%;"></div>
+        <div class="line" style="width:80%;"></div>
+        <div class="ximg" style="height:58px;margin-top:4px;"></div>
+
+        <div class="section-tag">Why VirtualWorks (trust list)</div>
+        <div class="box" style="padding:6px;"><div class="line" style="width:85%;"></div></div>
+        <div class="box" style="padding:6px;"><div class="line" style="width:85%;"></div></div>
+        <div class="box" style="padding:6px;"><div class="line" style="width:85%;"></div></div>
+
+        <div class="section-tag">University partnership</div>
+        <div class="line" style="width:90%;"></div>
+        <div class="btn" style="width:110px;">Partner with us</div>
+
+        <div class="note">MSME registration number is a recurring trust signal — repeat it near every CTA.</div>
+        <div class="section-tag">Footer</div>
+        <div class="footer-block"></div>
+      </div>
+    </div>
+
+    <!-- PAGE 4: APPLY -->
+    <div class="page">
+      <div class="page-label"><span class="num">04</span> Apply / register page</div>
+      <div class="body">
+        <div class="nav">
+          <div class="logo"></div>
+          <div class="navlinks"><span></span><span></span><span></span></div>
+          <div class="cta-pill">Login</div>
+        </div>
+
+        <div class="section-tag">Form intro</div>
+        <div class="line" style="width:60%;height:13px;"></div>
+        <div class="line" style="width:82%;"></div>
+
+        <div class="section-tag">Registration form</div>
+        <div class="box" style="height:14px;"></div>
+        <div class="box" style="height:14px;"></div>
+        <div class="row">
+          <div class="box" style="height:14px;"></div>
+          <div class="box" style="height:14px;"></div>
+        </div>
+        <div class="box" style="height:14px;"></div>
+        <div class="btn primary" style="margin-top:2px;">Submit application</div>
+
+        <div class="section-tag">Trust markers</div>
+        <div class="row">
+          <div class="box" style="height:20px;"></div>
+          <div class="box" style="height:20px;"></div>
+        </div>
+
+        <div class="note">Keep the ₹99 certificate-fee disclosure visible near submit — avoids surprise at the end.</div>
+        <div class="section-tag">Footer</div>
+        <div class="footer-block"></div>
+      </div>
+    </div>
+
+  </div>
+
+  <footer>
+    Wireframe for virtualworks.space · Structure-first UI/UX planning · Grey boxes and lines represent content placement only, not final visual design.
+  </footer>
+
+</body>
+</html>
